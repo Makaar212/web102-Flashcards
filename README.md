@@ -40,7 +40,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src="./assets/project1.gif" />
+<img src="./src/assets/project1.gif" />
 
 <!-- Replace this with whatever GIF tool you used! -->
 
