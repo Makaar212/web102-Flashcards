@@ -8,12 +8,42 @@
   justify-self: center;
 }
 
-.green {
-  background-color: rgba(144, 238, 144, 0.5);
+.flashCard {
+  width: 450px;
+  height: 225px;
+  margin: 25px auto;
+  perspective: 1000px;
+  cursor: pointer;
 }
 
-.flashCard {
-  width: 400px;
-  height: 250px;
-  margin: 25px auto;
+.flipInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.flipInner.flipped {
+  transform: rotateY(180deg);
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.green .face {
+  background-color: rgb(200, 245, 200);
 }

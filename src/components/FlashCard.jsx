@@ -1,8 +1,18 @@
-const FlashCard = (props) => {
+import { useState } from "react";
+
+const FlashCard = ({ color, question, answer }) => {
+  const [flipped, setFlipped] = useState(false);
+
   return (
-    <div className={`flashCard ${props.color}`}>
-      <h1>{props.question}</h1>
-      <p>{props.answer}</p>
+    <div className={`flashCard ${color}`} onClick={() => setFlipped((f) => !f)}>
+      <div className={`flipInner ${flipped ? "flipped" : ""}`}>
+        <div className="face front">
+          <h1>{question}</h1>
+        </div>
+        <div className="face back">
+          <p>{answer}</p>
+        </div>
+      </div>
     </div>
   );
 };

@@ -3,7 +3,15 @@ import "./App.css";
 import FlashCard from "./components/FlashCard";
 const App = () => {
   const [color, setColor] = useState("green");
-
+  const COLORS = [
+    "red",
+    "pink",
+    "green",
+    "blue",
+    "lightblue",
+    "purple",
+    "lightpurple",
+  ];
   return (
     <div className="bodyContainer">
       <div>
