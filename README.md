@@ -44,7 +44,7 @@ Here's a walkthrough of implemented required features:
 
 <!-- Replace this with whatever GIF tool you used! -->
 
-GIF created with ...
+GIF created with N-Studio
 
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
@@ -53,7 +53,7 @@ GIF created with ...
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Creating the flipping animation was the hardest part of the whole process.
 
 ## License
 
