@@ -1,9 +1,9 @@
 const FlashCard = (props) => {
   return (
     <div>
-      <div>
-        <h1>{props.title}</h1>
-        <p>{props.description}</p>
+      <div className={props.color}>
+        <h1>{props.question}</h1>
+        <p>{props.answer}</p>
       </div>
     </div>
   );
