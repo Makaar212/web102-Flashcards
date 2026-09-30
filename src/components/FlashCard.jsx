@@ -10,7 +10,7 @@ const FlashCard = ({ color, question, answer }) => {
           <h1>{question}</h1>
         </div>
         <div className="face back">
-          <p>{answer}</p>
+          <h2>{answer}</h2>
         </div>
       </div>
     </div>

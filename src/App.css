@@ -8,6 +8,15 @@
   justify-self: center;
 }
 
+button {
+  border-radius: 12px;
+  border: 0.5px solid black;
+  width: 50px;
+  height: 30px;
+  background-color: rgb(250, 254, 255);
+  cursor: pointer;
+}
+
 .flashCard {
   width: 450px;
   height: 225px;
@@ -25,7 +34,7 @@
 }
 
 .flipInner.flipped {
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
 }
 
 .face {
@@ -41,9 +50,27 @@
 }
 
 .back {
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
 }
 
 .green .face {
   background-color: rgb(200, 245, 200);
+}
+.red .face {
+  background-color: lightcoral;
+}
+.pink .face {
+  background-color: pink;
+}
+.blue .face {
+  background-color: lightskyblue;
+}
+.lightblue .face {
+  background-color: lightblue;
+}
+.purple .face {
+  background-color: rgb(158, 55, 158);
+}
+.lightpurple .face {
+  background-color: rgb(211, 146, 248);
 }
