@@ -5,7 +5,7 @@ const App = () => {
   const [color, setColor] = useState("green");
   const [question, setQuestion] = useState("Are you ready to start?");
   const [answer, setAnswer] = useState("Press arrow button to start");
-
+  const [questionIndex, setQuestionIndex] = useState(0);
   const questionBank = [
     {
       question: "Which programming language has the logo of two snakes?",
@@ -68,15 +68,13 @@ const App = () => {
 
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-  let questionIndex = 0;
-
-  function changeQuestion() {
-    questionIndex = (questionIndex + 1) % questionBank.length;
-    let chosenQuestion = questionBank[questionIndex];
-
+  async function changeQuestion() {
     let flashCard = document.querySelector(".flipInner");
     flashCard.classList.remove("flipped");
+    await delay(350);
 
+    setQuestionIndex((questionIndex + 1) % questionBank.length);
+    let chosenQuestion = questionBank[questionIndex];
     setColor(COLORS[Math.floor(Math.random() * COLORS.length)]);
     setQuestion(chosenQuestion.question);
     setAnswer(chosenQuestion.answer);
