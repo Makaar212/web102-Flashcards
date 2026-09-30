@@ -1,7 +1,3 @@
-body {
-  text-align: center;
-}
-
 .bodyContainer {
   text-align: center;
 }
@@ -10,4 +6,14 @@ body {
   display: flex;
   gap: 8px;
   justify-self: center;
+}
+
+.green {
+  background-color: rgba(144, 238, 144, 0.5);
+}
+
+.flashCard {
+  width: 400px;
+  height: 250px;
+  margin: 25px auto;
 }

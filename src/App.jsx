@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import FlashCard from "./components/FlashCard";
 const App = () => {
+  const [color, setColor] = useState("green");
+
   return (
     <div className="bodyContainer">
       <div>
@@ -13,11 +15,11 @@ const App = () => {
         <p>Number of Cards: </p>
       </div>
 
-      {/* <FlashCard
+      <FlashCard
         color={color}
         question={"question"}
         answer={"answer"}
-      ></FlashCard> */}
+      ></FlashCard>
 
       <div className="buttonContainer">
         <button className="backButton">←</button>
