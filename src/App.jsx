@@ -82,7 +82,7 @@ const App = () => {
 
   return (
     <div className="bodyContainer">
-      <div>
+      <div className="header">
         <h1>Computer Science Trivia!</h1>
         <h3>
           How much do you know about computer science? Test all your knowledge

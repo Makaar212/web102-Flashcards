@@ -1,13 +1,20 @@
 .bodyContainer {
   text-align: center;
 }
-
+body {
+  background-image: url("https://thumbs.dreamstime.com/b/hand-drawn-sketch-computer-technology-gadgets-vector-set-electronic-device-illustration-monitor-tablet-90013379.jpg");
+}
 .buttonContainer {
   display: flex;
   gap: 8px;
   justify-self: center;
 }
 
+.header {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 120px;
+}
 button {
   border-radius: 12px;
   border: 0.5px solid black;
