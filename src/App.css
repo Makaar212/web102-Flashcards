@@ -14,6 +14,18 @@ body {
   border: 0.2px solid black;
 }
 
+#answerBox.neutralAnswer {
+  border: 0.2px solid black;
+}
+
+#answerBox.correctAnswer {
+  border: 5px solid green;
+}
+
+#answerBox.incorrectAnswer {
+  border: 5px solid red;
+}
+
 .buttonContainer {
   display: flex;
   gap: 8px;

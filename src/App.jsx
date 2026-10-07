@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import "./App.css";
 import FlashCard from "./components/FlashCard";
 const App = () => {
@@ -8,6 +8,7 @@ const App = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [forwardGray, setForwardGray] = useState(false);
   const [backwardGray, setBackwardGray] = useState(true);
+  const [answerResult, setAnswerResult] = useState("neutralAnswer");
   const questionBank = [
     {
       question: "Which programming language has the logo of two snakes?",
@@ -69,7 +70,13 @@ const App = () => {
   ];
 
   function checkAnswer(e) {
-    e.preventdefault();
+    e.preventDefault();
+    const input = document.querySelector("#answerBox");
+    if (input.value.toLowerCase() == answer.toLowerCase()) {
+      setAnswerResult("correctAnswer");
+    } else {
+      setAnswerResult("incorrectAnswer");
+    }
   }
 
   function forwardQuestion() {
@@ -78,6 +85,7 @@ const App = () => {
 
     setQuestionIndex(Math.min(questionIndex + 1, questionBank.length - 1));
     setBackwardGray(false);
+    setAnswerResult("neutralAnswer");
     if (questionIndex == questionBank.length - 1) {
       setForwardGray(true);
     }
@@ -94,7 +102,7 @@ const App = () => {
     flashCard.classList.remove("flipped");
 
     setQuestionIndex(Math.max(questionIndex - 1, 0));
-
+    setAnswerResult("neutralAnswer");
     setForwardGray(false);
 
     if (questionIndex == 0) {
@@ -120,8 +128,13 @@ const App = () => {
       </div>
 
       <FlashCard color={color} question={question} answer={answer}></FlashCard>
-      <form>
-        <input id="answerBox" name="answer" placeholder="Guess Answer"></input>
+      <form onSubmit={checkAnswer}>
+        <input
+          className={answerResult}
+          id="answerBox"
+          name="answer"
+          placeholder="Guess Answer"
+        ></input>
       </form>
       <div className="buttonContainer">
         <button
