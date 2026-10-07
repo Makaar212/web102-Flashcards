@@ -135,6 +135,7 @@ const App = () => {
           name="answer"
           placeholder="Guess Answer"
         ></input>
+        <button className="submitAnswerButton">Submit Answer</button>
       </form>
       <div className="buttonContainer">
         <button
