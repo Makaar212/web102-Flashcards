@@ -69,31 +69,27 @@ const App = () => {
   ];
 
   function forwardQuestion() {
-    console.log(`Before manipulation : ${questionIndex}`);
-
     let flashCard = document.querySelector(".flipInner");
     flashCard.classList.remove("flipped");
 
     setQuestionIndex(Math.min(questionIndex + 1, questionBank.length - 1));
     setBackwardGray(false);
-    console.log(`After manipulation : ${questionIndex}`);
     if (questionIndex == questionBank.length - 1) {
       setForwardGray(true);
     }
     let chosenQuestion = questionBank[questionIndex];
-    setColor(COLORS[Math.floor(Math.random() * COLORS.length)]);
+    if (questionIndex != questionBank.length - 1) {
+      setColor(COLORS[Math.floor(Math.random() * COLORS.length)]);
+    }
     setQuestion(chosenQuestion.question);
     setAnswer(chosenQuestion.answer);
   }
 
   function backwardQuestion() {
-    console.log(`Before manipulation : ${questionIndex}`);
-
     let flashCard = document.querySelector(".flipInner");
     flashCard.classList.remove("flipped");
 
     setQuestionIndex(Math.max(questionIndex - 1, 0));
-    console.log(`After manipulation : ${questionIndex}`);
 
     setForwardGray(false);
 
@@ -101,7 +97,9 @@ const App = () => {
       setBackwardGray(true);
     }
     let chosenQuestion = questionBank[questionIndex];
-    setColor(COLORS[Math.floor(Math.random() * COLORS.length)]);
+    if (questionIndex != 0) {
+      setColor(COLORS[Math.floor(Math.random() * COLORS.length)]);
+    }
     setQuestion(chosenQuestion.question);
     setAnswer(chosenQuestion.answer);
   }
