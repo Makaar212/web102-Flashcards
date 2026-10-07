@@ -6,7 +6,8 @@ const App = () => {
   const [question, setQuestion] = useState("Are you ready to start?");
   const [answer, setAnswer] = useState("Press arrow button to start");
   const [questionIndex, setQuestionIndex] = useState(0);
-
+  const [forwardGray, setForwardGray] = useState(false);
+  const [backwardGray, setBackwardGray] = useState(true);
   const questionBank = [
     {
       question: "Which programming language has the logo of two snakes?",
@@ -68,21 +69,36 @@ const App = () => {
   ];
 
   function forwardQuestion() {
-    if (questionIndex == questionBank.length - 1) {
-      return;
-    }
+    console.log(`Before manipulation : ${questionIndex}`);
+
     let flashCard = document.querySelector(".flipInner");
     flashCard.classList.remove("flipped");
 
-    let forwardButton = document.querySelector(".forwardButton");
-    let backwardButton = document.querySelector(".backwardButton");
-
-    setQuestionIndex(questionIndex + 1);
-    if (backwardButton.classList.contains("greyButton")) {
-      backwardButton.classList.remove("greyButton");
-    }
+    setQuestionIndex(Math.min(questionIndex + 1, questionBank.length - 1));
+    setBackwardGray(false);
+    console.log(`After manipulation : ${questionIndex}`);
     if (questionIndex == questionBank.length - 1) {
-      forwardButton.classList.add("greyButton");
+      setForwardGray(true);
+    }
+    let chosenQuestion = questionBank[questionIndex];
+    setColor(COLORS[Math.floor(Math.random() * COLORS.length)]);
+    setQuestion(chosenQuestion.question);
+    setAnswer(chosenQuestion.answer);
+  }
+
+  function backwardQuestion() {
+    console.log(`Before manipulation : ${questionIndex}`);
+
+    let flashCard = document.querySelector(".flipInner");
+    flashCard.classList.remove("flipped");
+
+    setQuestionIndex(Math.max(questionIndex - 1, 0));
+    console.log(`After manipulation : ${questionIndex}`);
+
+    setForwardGray(false);
+
+    if (questionIndex == 0) {
+      setBackwardGray(true);
     }
     let chosenQuestion = questionBank[questionIndex];
     setColor(COLORS[Math.floor(Math.random() * COLORS.length)]);
@@ -104,8 +120,16 @@ const App = () => {
       <FlashCard color={color} question={question} answer={answer}></FlashCard>
 
       <div className="buttonContainer">
-        <button className="backwardButton">←</button>
-        <button className="forwardButton" onClick={forwardQuestion}>
+        <button
+          className={`backwardButton ${backwardGray ? "grayButton" : null}`}
+          onClick={backwardQuestion}
+        >
+          ←
+        </button>
+        <button
+          className={`forwardButton ${forwardGray ? "grayButton" : null}`}
+          onClick={forwardQuestion}
+        >
           →
         </button>
       </div>

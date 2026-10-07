@@ -81,3 +81,6 @@ button {
 .lightpurple .face {
   background-color: rgb(211, 146, 248);
 }
+.grayButton {
+  background-color: rgb(78, 77, 77);
+}
