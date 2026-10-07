@@ -5,6 +5,8 @@ const App = () => {
   const [color, setColor] = useState("green");
   const [question, setQuestion] = useState("Are you ready to start?");
   const [answer, setAnswer] = useState("Press arrow button to start");
+  const [questionIndex, setQuestionIndex] = useState(0);
+
   const questionBank = [
     {
       question: "Which programming language has the logo of two snakes?",
@@ -67,13 +69,24 @@ const App = () => {
 
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-  async function changeQuestion() {
+  async function forwardQuestion() {
+    if (questionIndex == questionBank.length - 1) {
+      return;
+    }
     let flashCard = document.querySelector(".flipInner");
     flashCard.classList.remove("flipped");
-    await delay(350);
 
-    let chosenQuestion =
-      questionBank[Math.floor(Math.random() * questionBank.length)];
+    let forwardButton = document.querySelector(".forwardButton");
+    let backwardButton = document.querySelector(".backwardButton");
+
+    setQuestionIndex(questionIndex + 1);
+    if (backwardButton.classList.contains("greyButton")) {
+      backwardButton.classList.remove("greyButton");
+    }
+    if (questionIndex == questionBank.length - 1) {
+      forwardButton.classList.add("greyButton");
+    }
+    let chosenQuestion = questionBank[questionIndex];
     setColor(COLORS[Math.floor(Math.random() * COLORS.length)]);
     setQuestion(chosenQuestion.question);
     setAnswer(chosenQuestion.answer);
@@ -93,7 +106,8 @@ const App = () => {
       <FlashCard color={color} question={question} answer={answer}></FlashCard>
 
       <div className="buttonContainer">
-        <button className="forwardButton" onClick={changeQuestion}>
+        <button className="backwardButton">←</button>
+        <button className="forwardButton" onClick={forwardQuestion}>
           →
         </button>
       </div>
