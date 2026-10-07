@@ -4,6 +4,16 @@
 body {
   background-image: url("https://thumbs.dreamstime.com/b/hand-drawn-sketch-computer-technology-gadgets-vector-set-electronic-device-illustration-monitor-tablet-90013379.jpg");
 }
+
+#answerBox {
+  margin: 8px;
+  border-radius: 4px;
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+  border: 0.2px solid black;
+}
+
 .buttonContainer {
   display: flex;
   gap: 8px;

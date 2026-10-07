@@ -68,6 +68,10 @@ const App = () => {
     "lightpurple",
   ];
 
+  function checkAnswer(e) {
+    e.preventdefault();
+  }
+
   function forwardQuestion() {
     let flashCard = document.querySelector(".flipInner");
     flashCard.classList.remove("flipped");
@@ -116,7 +120,9 @@ const App = () => {
       </div>
 
       <FlashCard color={color} question={question} answer={answer}></FlashCard>
-
+      <form>
+        <input id="answerBox" name="answer" placeholder="Guess Answer"></input>
+      </form>
       <div className="buttonContainer">
         <button
           className={`backwardButton ${backwardGray ? "grayButton" : null}`}
