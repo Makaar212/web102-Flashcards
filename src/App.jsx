@@ -67,9 +67,7 @@ const App = () => {
     "lightpurple",
   ];
 
-  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-
-  async function forwardQuestion() {
+  function forwardQuestion() {
     if (questionIndex == questionBank.length - 1) {
       return;
     }
